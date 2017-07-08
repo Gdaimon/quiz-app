@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+
+<div class="ui bottom horizontally inverted very wide sidebar three labeled icon menu centrar-elementos">
+  <a class="item"
+     (click)="reiniciarQuiz()"
+  >
+    <i class="file text icon"></i>
+    Quiz
+  </a>
+  <a class="item"
+     (click)="avancesQuiz()"
+  >
+    <i class="list layout icon"></i>
+    Review
+  </a>
+  <a class="item"
+     (click)="enviar()"
+  >
+    <i class="send icon"></i>
+    Submit Quiz
+  </a>
+</div>
+
+<div class="ui container principal" *ngIf="cargar">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>

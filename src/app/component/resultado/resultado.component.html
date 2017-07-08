@@ -1,0 +1,53 @@
+<div class="centrar-elementos animated fadeIn fast container">
+
+  <h2 class="ui horizontal divider header">
+    {{title}}
+  </h2>
+  <br>
+
+</div>
+<button class="ui right labeled icon button primary"
+        (click)="resetQuiz()"
+>
+  <i class="flag checkered icon"></i>
+  Finish
+</button>
+<br>
+<br>
+<div class="ui one column doubling stackable grid container centrar-elementos animated fadeIn fast">
+  <div class="column" *ngFor="let pregunta of preguntas; let indice = index">
+    <h3 class="ui header">{{indice+1}}. - {{pregunta.nombrePregunta}}</h3>
+
+    <div class="ui two column doubling stackable grid container centrar-elementos">
+
+      <div class="column" *ngFor="let opcion of pregunta.opciones; let index = index">
+        <div class="ui left floated compact segment">
+          <div class="ui fitted checkbox">
+            <div class="ui radio checkbox">
+              <input type="radio"
+                     disabled
+                     id="opt-{{index +1}}"
+                     name="option"
+                     [checked]="opcion.value"
+              >
+              <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{opcion.nombre}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <article>
+      <div class="ui cards">
+        <div class="card" [style.background]="getStyle(pregunta.resultado)">
+          <div class="content">
+            <div class="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pregunta.resultado ==true? 'Your answer is correct':'Your answer not is correct'}}</div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <div class="ui section divider"></div>
+  </div>
+
+</div>
+

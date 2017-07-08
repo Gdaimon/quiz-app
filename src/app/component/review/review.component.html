@@ -1,0 +1,24 @@
+<div class="animated fadeIn fast">
+  <h3>{{titulo}}</h3>
+  <button class="ui left labeled icon button primary"
+          (click)="regresar()"
+  >
+    <i class="left arrow icon"></i>
+    Atras
+  </button>
+  <hr>
+
+  <div *ngIf="loading" class="ui two column doubling stackable grid container centrar-elementos">
+    <div class="column" *ngFor="let pregunta of preguntas; let i = index">
+      <div class="ui left floated compact segment "
+           [style.background]="getStyle(pregunta.opciones |resultado)"
+      >
+        <div class="ui fitted">
+          <div class="ui ">
+            <label>&nbsp;&nbsp;{{i+1}}. {{pregunta.opciones |resultado}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
