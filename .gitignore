@@ -57,4 +57,3 @@ tsconfig.json
 .angular-cli.json
 .editorconfig
 .gitignore
-/src/environments/firebase.config.ts
